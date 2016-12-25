@@ -1,0 +1,245 @@
+REPL Instructions
+
+Code can be entered at the bottom and executed by pressing shift+enter.
+
+Try it now by typing (+ 1 1) in the bottom section and pressing shift+enter.
+
+Working in another Clojure file and sending forms to the REPL is the most efficient way to work. Use the following key bindings to send code to the REPL. See the settings for more keybindings.
+
+ctrl-alt-, then b
+Execute block. Finds the block of Clojure code your cursor is in and executes that.
+
+ctrl-alt-, s
+Executes the selection. Sends the selected text to the REPL.
+
+You can disable this help text in the settings.
+Atom Ink does not appear to be installed. Install it to get a better REPL experience.
+Starting REPL with lein in /Users/harrywynnwilliams/Projects/wonderland
+nREPL server started on port 49950 on host 127.0.0.1 - nrepl://127.0.0.1:49950
+Refreshing code...
+:reloading (wonderland.core wonderland.core-test alice.favfoods wonderland.rabbit_hole)
+:error-while-loading alice.favfoods
+Could not locate alice/favfoods__init.class or alice/favfoods.clj on classpath.
+Refresh complete
+(source first?
+  )
+CompilerException java.lang.RuntimeException: Unable to resolve symbol: source in this context, compiling:(/private/var/folders/xc/s63dqpyx43z0k_0yt6c2ct_h0000gn/T/form-init1379648373789749923.clj:1:5) 
+(source first)
+CompilerException java.lang.RuntimeException: Unable to resolve symbol: source in this context, compiling:(/private/var/folders/xc/s63dqpyx43z0k_0yt6c2ct_h0000gn/T/form-init1379648373789749923.clj:1:5) 
+(docs first)
+CompilerException java.lang.RuntimeException: Unable to resolve symbol: docs in this context, compiling:(/private/var/folders/xc/s63dqpyx43z0k_0yt6c2ct_h0000gn/T/form-init1379648373789749923.clj:1:5) 
+(doc
+   first)
+CompilerException java.lang.RuntimeException: Unable to resolve symbol: doc in this context, compiling:(/private/var/folders/xc/s63dqpyx43z0k_0yt6c2ct_h0000gn/T/form-init1379648373789749923.clj:1:5) 
+(doc
+   first)
+   (+ 1 1
+     )
+CompilerException java.lang.RuntimeException: Unable to resolve symbol: doc in this context, compiling:(/private/var/folders/xc/s63dqpyx43z0k_0yt6c2ct_h0000gn/T/form-init1379648373789749923.clj:1:5) 
+(+ 1 1)
+user=>
+2
+(doc seq)
+CompilerException java.lang.RuntimeException: Unable to resolve symbol: doc in this context, compiling:(/private/var/folders/xc/s63dqpyx43z0k_0yt6c2ct_h0000gn/T/form-init1379648373789749923.clj:1:5) 
+(use cloj)
+CompilerException java.lang.RuntimeException: Unable to resolve symbol: cloj in this context, compiling:(/private/var/folders/xc/s63dqpyx43z0k_0yt6c2ct_h0000gn/T/form-init1379648373789749923.clj:1:5) 
+(use clojure.core)
+CompilerException java.lang.ClassNotFoundException: clojure.core, compiling:(/private/var/folders/xc/s63dqpyx43z0k_0yt6c2ct_h0000gn/T/form-init1379648373789749923.clj:1:5) 
+(require clojure.core)
+CompilerException java.lang.ClassNotFoundException: clojure.core, compiling:(/private/var/folders/xc/s63dqpyx43z0k_0yt6c2ct_h0000gn/T/form-init1379648373789749923.clj:1:5) 
+
+(some #(> % 3) [1 2 3 4 5])
+user=>
+true
+
+(some #(> % 3) [1 2 3 4 5]) 
+user=>
+true
+(some #{4} [1 2 3 4 5])
+user=>
+4
+(some #{:porn} [1 2 3 4 5])
+user=>
+nil
+(some #{:porn} [1 :porn 3 4 5])
+user=>
+:porn
+(let [need-to-grow (< 5 3)]
+(if need-to-grow
+  "hi"
+  "hello")
+)
+user=>
+"hello"
+(if-let [need-to-grow (< 5 3)]
+
+  "hi"
+  "hello"
+)
+user=>
+"hello"
+(when (> 3 2) "hello")
+user=>
+"hello"
+(let [hello :porn]
+  (cond
+    (= :porn) "harry"
+    (= :gym ) "ian"))
+user=>
+"harry"
+(str name " is growing bigger")
+user=>
+"clojure.core$name@2459b60b is growing bigger"
+
+
+(grow :small)
+CompilerException java.lang.RuntimeException: Unable to resolve symbol: grow in this context, compiling:(/Users/harrywynnwilliams/Projects/wonderland/src/wonderland/favfoods.clj:3:1) 
+
+(grow "harry" :small)
+CompilerException java.lang.RuntimeException: Unable to resolve symbol: grow in this context, compiling:(/Users/harrywynnwilliams/Projects/wonderland/src/wonderland/favfoods.clj:2:1) 
+Loading File /Users/harrywynnwilliams/Projects/wonderland/src/wonderland/favfoods.clj
+user=>
+#'alice.favfoods/grow
+
+(grow "harry" :small)
+CompilerException java.lang.RuntimeException: Unable to resolve symbol: grow in this context, compiling:(/Users/harrywynnwilliams/Projects/wonderland/src/wonderland/favfoods.clj:2:1) 
+(defn grow [name direction]
+  (if (= direction :small)
+  (str name " is growing smaller")
+  (str name " is growing bigger")))
+  
+user=>
+#'user/grow
+
+(grow "harry" :small)
+user=>
+"harry is growing smaller"
+
+(grow "harry" :smalleer)
+user=>
+"harry is growing bigger"
+
+(partial "harry" )
+user=>
+"harry"
+
+(partial grow 
+  "harry" )
+user=>
+#object[clojure.core$partial$fn__4759 0x65231ac4 "clojure.core$partial$fn__4759@65231ac4"]
+
+((partial grow "harry"):small)
+user=>
+"harry is growing smaller"
+
+((partial grow "harry"):big)
+user=>
+"harry is growing bigger"
+Refreshing code...
+No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
+
+:reloading (alice.favfoods wonderland.rabbit_hole)
+:error-while-loading alice.favfoods
+Could not locate alice/favfoods__init.class or alice/favfoods.clj on classpath.
+Refresh complete
+Refreshing code...
+No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
+
+:reloading (wonderland.favfoods alice.favfoods wonderland.rabbit_hole)
+:error-while-loading alice.favfoods
+Could not locate alice/favfoods__init.class or alice/favfoods.clj on classpath.
+Refresh complete
+Refreshing code...
+No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
+
+:reloading (alice.favfoods wonderland.rabbit_hole)
+:error-while-loading alice.favfoods
+Could not locate alice/favfoods__init.class or alice/favfoods.clj on classpath.
+Refresh complete
+Refreshing code...
+No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
+
+:reloading (alice.favfoods wonderland.rabbit_hole)
+:error-while-loading alice.favfoods
+Could not locate alice/favfoods__init.class or alice/favfoods.clj on classpath.
+Refresh complete
+Refreshing code...
+No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
+
+:reloading (alice.favfoods wonderland.rabbit_hole)
+:error-while-loading alice.favfoods
+Could not locate alice/favfoods__init.class or alice/favfoods.clj on classpath.
+Refresh complete
+REPL already running
+Refreshing code...
+No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
+
+:reloading (alice.favfoods wonderland.rabbit_hole)
+:error-while-loading alice.favfoods
+Could not locate alice/favfoods__init.class or alice/favfoods.clj on classpath.
+Refresh complete
+Refreshing code...
+No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
+
+:reloading (alice.favfoods wonderland.rabbit_hole)
+:error-while-loading alice.favfoods
+Could not locate alice/favfoods__init.class or alice/favfoods.clj on classpath.
+Refresh complete
+Refreshing code...
+No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
+
+:reloading (favfoods alice.favfoods wonderland.rabbit_hole)
+:error-while-loading favfoods
+Could not locate favfoods__init.class or favfoods.clj on classpath.
+Refresh complete
+Stopping REPL
+REPL Closed
+Starting REPL with lein in /Users/harrywynnwilliams/Projects/wonderland
+Refreshing code...
+nREPL server started on port 51294 on host 127.0.0.1 - nrepl://127.0.0.1:51294
+Refreshing code...
+:reloading (wonderland.core wonderland.core-test favfoods wonderland.rabbit_hole)
+:error-while-loading favfoods
+Could not locate favfoods__init.class or favfoods.clj on classpath.
+Refresh complete
+Refreshing code...
+No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
+
+:reloading (wonderland.favfoods favfoods wonderland.rabbit_hole)
+:error-while-loading favfoods
+Could not locate favfoods__init.class or favfoods.clj on classpath.
+Refresh complete
+Refreshing code...
+No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
+
+:reloading (favfoods wonderland.rabbit_hole)
+:error-while-loading favfoods
+Could not locate favfoods__init.class or favfoods.clj on classpath.
+Refresh complete
+Stopping REPL
+REPL Closed
+Starting REPL with lein in /Users/harrywynnwilliams/Projects/wonderland
+Refreshing code...
+nREPL server started on port 51302 on host 127.0.0.1 - nrepl://127.0.0.1:51302
+Refreshing code...
+:reloading (wonderland.core wonderland.core-test wonderland.rabbit_hole)
+Refresh complete
+Refreshing code...
+No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
+
+:reloading ()
+Refresh complete
+Refreshing code...
+No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
+
+:reloading ()
+Refresh complete
+Refreshing code...
+No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
+
+:reloading ()
+Refresh complete
+
+(wonderland.favfoods hello )
+CompilerException java.lang.ClassNotFoundException: wonderland.favfoods, compiling:(/private/var/folders/xc/s63dqpyx43z0k_0yt6c2ct_h0000gn/T/form-init6388788075636055004.clj:2:1) 
+--------------------

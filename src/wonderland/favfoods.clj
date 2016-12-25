@@ -9,3 +9,65 @@
 
 (defn toggle-grow [direction]
   (if (= direction :small) :big :small))
+
+(defn oh-my [direction]
+  (str "oh my! you are growing " direction))
+
+(defn surprise [direction]
+  ((comp oh-my toggle-grow) direction))
+
+
+;; using comp can combine functions and pass the argument to the functions
+
+(defn adder [x y]
+  (+ x y))
+
+
+(let [[colour size] ["blue" "small"]]
+(str "the " colour " door is " size))
+
+
+;; this is the same as above but more verbose
+(let [x ["blue" "small"]
+  colour (first x)
+  size (last x)]
+  (str "The " colour "door is " size))
+
+(let [[colour [size sized]] ["blue" ["very small" "very large" "massive"]]]
+  (str "The " colour "door is " size sized))
+;; by adding an ampersand to the sized parameter you can call the rest of the vector.
+
+(let [[colour [size] :as original] ["blue" ["very small" "very large" "massive"]]]
+  (str "The " colour "door is " size)
+  {:colour colour :size size :orginal original})
+
+;; destructuring can be done with maps tools
+
+(let [{flower1 :flower1 flower2 :flower2}
+  {:flower1 "red" :flower2 "blue"}]
+  (str "The flowers are " flower1 " and " flower2))
+
+
+(let [{flower1 :flower1 flower2 :flower2 :or {flower2 "missing"}}
+  {:flower1 "red" }]
+  (str "The flowers are " flower1 " and " flower2))
+;;the above uses :or to specify  default value if there is no flower2
+; can use add too to keep the whole initial data structue
+
+(let [{flower1 :flower1 :as all-flower}
+  {:flower1 "red"}]
+  [flower1 all-flower])
+
+
+(let [{:keys [flower1 flower2]}{:flower1 "blue" :flower2 "green"}] (str flower1 flower2))
+
+(defn flower-colours [colours]
+  (str (:flower1 colours)
+  (:flower2 colours)
+  ))
+
+;;(wonderland.favfoods/flower-colours {:flower1 "red" :flower2 "green"})
+;calling the function with this format works however it is not as clear as the destructuring method below.
+
+(defn flower-colours [{:keys [flower1 flower2]}]
+(str flower1 " " flower2))
