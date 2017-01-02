@@ -15,260 +15,328 @@ Executes the selection. Sends the selected text to the REPL.
 You can disable this help text in the settings.
 Atom Ink does not appear to be installed. Install it to get a better REPL experience.
 Starting REPL with lein in /Users/harrywynnwilliams/Projects/wonderland
-nREPL server started on port 51364 on host 127.0.0.1 - nrepl://127.0.0.1:51364
+nREPL server started on port 54037 on host 127.0.0.1 - nrepl://127.0.0.1:54037
 Refreshing code...
 :reloading (wonderland.core wonderland.core-test wonderland.rabbit_hole wonderland.favfoods)
 Refresh complete
+
+(take 10 (rest (cycle ["john and michele" "ian and stace"])))
+user=>
+("ian and stace" "john and michele" "ian and stace" "john and michele" "ian and stace" "john and michele" "ian and stace" "john and michele" "ian and stace" "john and michele")
+Refreshing code...
+No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
+
+:reloading (wonderland.favfoods wonderland.recursion)
+Refresh complete
+
+wonderland.recursion/adjs
+
+CompilerException java.lang.RuntimeException: No such var: wonderland.recursion/adjs, compiling:(/private/var/folders/xc/s63dqpyx43z0k_0yt6c2ct_h0000gn/T/form-init6000810719267496280.clj:1:1)
+Loading File /Users/harrywynnwilliams/Projects/wonderland/src/wonderland/recursion.clj
+user=>
+#'wonderland.recursion/adjs
+
+wonderland.recursion/adjs
+
+user=>
+["normal" "too small" "too big" "is swimming"]
+Refreshing code...
+No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
+
+:reloading (wonderland.recursion)
+Refresh complete
+
+(wonderland.recursion/alice-is adj)
+
+CompilerException java.lang.RuntimeException: No such var: wonderland.recursion/alice-is, compiling:(/private/var/folders/xc/s63dqpyx43z0k_0yt6c2ct_h0000gn/T/form-init6000810719267496280.clj:2:1)
+
+(wonderland.recursion/alice-is wonderland.recursion/adj)
+
+CompilerException java.lang.RuntimeException: No such var: wonderland.recursion/alice-is, compiling:(/private/var/folders/xc/s63dqpyx43z0k_0yt6c2ct_h0000gn/T/form-init6000810719267496280.clj:2:1)
 Refreshing code...
 No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
 
 :reloading ()
 Refresh complete
-Loading File /Users/harrywynnwilliams/Projects/wonderland/src/wonderland/favfoods.clj
-user=>
-#'wonderland.favfoods/hello
-(hello)
-CompilerException java.lang.RuntimeException: Unable to resolve symbol: hello in this context, compiling:(/private/var/folders/xc/s63dqpyx43z0k_0yt6c2ct_h0000gn/T/form-init2354719514907275649.clj:1:5) 
-(hello "harry")
-CompilerException java.lang.RuntimeException: Unable to resolve symbol: hello in this context, compiling:(/private/var/folders/xc/s63dqpyx43z0k_0yt6c2ct_h0000gn/T/form-init2354719514907275649.clj:1:5) 
-(wonderland.favfoods/hello "harry")
-ClassCastException java.lang.String cannot be cast to clojure.lang.IFn  user/eval10207 (form-init2354719514907275649.clj:1)
-(wonderland.favfoods/hello)
-ClassCastException java.lang.String cannot be cast to clojure.lang.IFn  user/eval10213 (form-init2354719514907275649.clj:1)
-wonderland.favfoods/hello
-user=>
-"harry"
-REPL already running
-Loading File /Users/harrywynnwilliams/Projects/wonderland/src/wonderland/favfoods.clj
-user=>
-#'wonderland.favfoods/toggle-grow
-Refreshing code...
-No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
 
-:reloading (wonderland.favfoods)
-Refresh complete
-(toggle-grow :small)
-CompilerException java.lang.RuntimeException: Unable to resolve symbol: toggle-grow in this context, compiling:(/private/var/folders/xc/s63dqpyx43z0k_0yt6c2ct_h0000gn/T/form-init2354719514907275649.clj:1:5) 
-(wonderland.favfoods/toggle-grow :small)
-user=>
-:big
-Refreshing code...
-No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
+(wonderland.recursion/alice-is wonderland.recursion/adj)
 
-:reloading (wonderland.favfoods)
-Refresh complete
-(wonderland.favfoods/oh-my :small)
-user=>
-"oh my! you are growing :small"
-(oh-my (toggle-grow :small))
-CompilerException java.lang.RuntimeException: Unable to resolve symbol: oh-my in this context, compiling:(/private/var/folders/xc/s63dqpyx43z0k_0yt6c2ct_h0000gn/T/form-init2354719514907275649.clj:1:5) 
-(wonderland.favfoods/oh-my (wonderland.favfoods/toggle-grow :small))
-user=>
-"oh my! you are growing :big"
+CompilerException java.lang.RuntimeException: No such var: wonderland.recursion/alice-is, compiling:(/private/var/folders/xc/s63dqpyx43z0k_0yt6c2ct_h0000gn/T/form-init6000810719267496280.clj:2:1)
+(defn alice-is [in out]
+(if (empty? in))
+  out
+  (alice-is
+    (rest in)
+    (conj out
+      (str "alice is " (first in)))))
+
+CompilerException java.lang.RuntimeException: Too few arguments to if, compiling:(/private/var/folders/xc/s63dqpyx43z0k_0yt6c2ct_h0000gn/T/form-init6000810719267496280.clj:2:1)
 Refreshing code...
 No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
 
 :reloading ()
 Refresh complete
-(surprise :big)
-CompilerException java.lang.RuntimeException: Unable to resolve symbol: surprise in this context, compiling:(/private/var/folders/xc/s63dqpyx43z0k_0yt6c2ct_h0000gn/T/form-init2354719514907275649.clj:1:5) 
-(wonderland.favfoods/urprise :big)
-CompilerException java.lang.RuntimeException: No such var: wonderland.favfoods/urprise, compiling:(/private/var/folders/xc/s63dqpyx43z0k_0yt6c2ct_h0000gn/T/form-init2354719514907275649.clj:1:5) 
-(wonderland.favfoods/surprise :big)
-CompilerException java.lang.RuntimeException: No such var: wonderland.favfoods/surprise, compiling:(/private/var/folders/xc/s63dqpyx43z0k_0yt6c2ct_h0000gn/T/form-init2354719514907275649.clj:1:5) 
+(defn alice-is [in out]
+(if (empty? in)
+  out
+  (alice-is
+    (rest in)
+    (conj out
+      (str "alice is " (first in)))))
+
+
+RuntimeException EOF while reading, starting at line 1  clojure.lang.Util.runtimeException (Util.java:221)
+(defn alice-is [in out]
+(if (empty? in)
+  out
+  (alice-is
+    (rest in)
+    (conj out
+      (str "alice is " (first in))))))
+
+
+user=>
+#'user/alice-is
+(defn alice-is [in out]
+(if (empty? in)
+  out
+  (alice-is
+    (rest in)
+    (conj out
+      (str "alice is " (first in)))))
+
+
+RuntimeException EOF while reading, starting at line 1  clojure.lang.Util.runtimeException (Util.java:221)
+(defn alice-is [in out]
+(if (empty? in)
+  out
+  (alice-is
+    (rest in)
+    (conj out
+      (str "alice is " (first in)))))
+
+
+
+RuntimeException EOF while reading, starting at line 1  clojure.lang.Util.runtimeException (Util.java:221)
+(alice-in wonderland.recursion/adj)
+CompilerException java.lang.RuntimeException: Unable to resolve symbol: alice-in in this context, compiling:(/private/var/folders/xc/s63dqpyx43z0k_0yt6c2ct_h0000gn/T/form-init6000810719267496280.clj:1:5)
+(alice-is wonderland.recursion/adj)
+CompilerException java.lang.RuntimeException: No such var: wonderland.recursion/adj, compiling:(/private/var/folders/xc/s63dqpyx43z0k_0yt6c2ct_h0000gn/T/form-init6000810719267496280.clj:1:5)
+(alice-is wonderland.recursion/adjs)
+ArityException Wrong number of args (1) passed to: user/alice-is  clojure.lang.AFn.throwArity (AFn.java:429)
+(alice-is wonderland.recursion/adjs 1)
+ClassCastException java.lang.Long cannot be cast to clojure.lang.IPersistentCollection  clojure.core/conj--4345 (core.clj:82)
+(alice-is wonderland.recursion/adjs "NONE")
+ClassCastException java.lang.String cannot be cast to clojure.lang.IPersistentCollection  clojure.core/conj--4345 (core.clj:82)
+(alice-is wonderland.recursion/adjs [])
+user=>
+["alice is normal" "alice is too small" "alice is too big" "alice is is swimming"]
 Refreshing code...
 No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
 
-:reloading (wonderland.favfoods)
-Refresh complete
-(wonderland.favfoods/surprise :big)
-user=>
-"oh my! you are growing :small"
-Refreshing code...
-No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
-
-:reloading (wonderland.favfoods)
-Refresh complete
-(adder 1 2)
-CompilerException java.lang.RuntimeException: Unable to resolve symbol: adder in this context, compiling:(/private/var/folders/xc/s63dqpyx43z0k_0yt6c2ct_h0000gn/T/form-init2354719514907275649.clj:1:5) 
-Refreshing code...
-No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
-
-:reloading (wonderland.favfoods)
-:error-while-loading wonderland.favfoods
-java.lang.IllegalArgumentException: Don't know how to create ISeq from: clojure.lang.Keyword, compiling:(wonderland/favfoods.clj:1:1)
+:reloading (wonderland.recursion)
+:error-while-loading wonderland.recursion
+java.lang.RuntimeException: EOF while reading, starting at line 5, compiling:(wonderland/recursion.clj:12:1)
 Refresh complete
 Refreshing code...
 No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
 
-:reloading (wonderland.favfoods)
+:reloading (wonderland.recursion)
+:error-while-loading wonderland.recursion
+java.lang.RuntimeException: EOF while reading, starting at line 5, compiling:(wonderland/recursion.clj:22:1)
 Refresh complete
-(wonderland.favfoods/adder 1 2)
-user=>
-3
-(wonderland.favfoods/adder 5)
-ArityException Wrong number of args (1) passed to: favfoods/adder  clojure.lang.AFn.throwArity (AFn.java:429)
-(partial (wonderland.favfoods/adder 5)5)
-ArityException Wrong number of args (1) passed to: favfoods/adder  clojure.lang.AFn.throwArity (AFn.java:429)
-((partial wonderland.favfoods/adder 5) 5)
-user=>
-10
-(5 (partial wonderland.favfoods/adder 5))
-ClassCastException java.lang.Long cannot be cast to clojure.lang.IFn  user/eval12051 (form-init2354719514907275649.clj:1)
-((partial wonderland.favfoods/adder 5))
-ArityException Wrong number of args (1) passed to: favfoods/adder  clojure.lang.AFn.throwArity (AFn.java:429)
-((partial wonderland.favfoods/adder 5)10)
-user=>
-15
-(let [[colour size] ["blue" "small"]]
-(str "the " colour " door is " size))
-user=>
-"the blue door is small"
-(let [x ["blue" "small"]
-  colour (first x)
-  size (last x)]
-  (str "The " colour "door is " size))
-user=>
-"The bluedoor is small"
-(let [[colour [size]] ["blue" ["very small"]]]
-  (str "The " colour "door is " size))
-user=>
-"The bluedoor is very small"
-(let [[colour [size]] ["blue" ["very small" "very large"]]]
-  (str "The " colour "door is " size))
-user=>
-"The bluedoor is very small"
-(let [[colour [size]] ["blue" ["very small" "very large"]]]
-  (str "The " colour "door is " size))
+(defn alice-is [in out]
+(if (empty? in) ;check to see if input is empty
+  out ;if in is empty it will return the result which starts as an empty vector
+  (alice-is ;function is started again...
+    (rest in) ;we give it the rest of the output
+    (conj out ;we then apply the string to the rest and append it to the "empty" vector
+      (str "alice is " (first in))))))
 
 user=>
-"The bluedoor is very small"
-(let [[colour [size sized]] ["blue" ["very small" "very large"]]]
-  (str "The " colour "door is " size sized))
+#'user/alice-is
+(alice-is wonderland.recursion/adjs [])
+CompilerException java.lang.ClassNotFoundException: wonderland.recursion, compiling:(/private/var/folders/xc/s63dqpyx43z0k_0yt6c2ct_h0000gn/T/form-init6000810719267496280.clj:1:5)
+wonderland.recursion/adjs
+CompilerException java.lang.ClassNotFoundException: wonderland.recursion, compiling:(/private/var/folders/xc/s63dqpyx43z0k_0yt6c2ct_h0000gn/T/form-init6000810719267496280.clj:1:1)
+Loading File /Users/harrywynnwilliams/Projects/wonderland/src/wonderland/recursion.clj
 user=>
-"The bluedoor is very smallvery large"
-(let [[colour [size sized]] ["blue" ["very small" "very large"]]]
-  (str "The " colour "door is " size sized))
+#'wonderland.recursion/alice-is-loop
+wonderland.recursion/adjs
 user=>
-"The bluedoor is very smallvery large"
-
-(let [[colour [size sized]] ["blue" ["very small" "very large" "massive"]]]
-  (str "The " colour "door is " size sized))
+["normal" "too small" "too big" "is swimming"]
+(alice-is wonderland.recursion/adjs [])
 user=>
-"The bluedoor is very smallvery large"
-
-(let [[colour [size &sized]] ["blue" ["very small" "very large" "massive"]]]
-  (str "The " colour "door is " size sized))
-CompilerException java.lang.RuntimeException: Unable to resolve symbol: sized in this context, compiling:(/private/var/folders/xc/s63dqpyx43z0k_0yt6c2ct_h0000gn/T/form-init2354719514907275649.clj:3:3) 
-
-(let [[colour [size & sized]] ["blue" ["very small" "very large" "massive"]]]
-  (str "The " colour "door is " size sized))
-user=>
-"The bluedoor is very small(\"very large\" \"massive\")"
+["alice is normal" "alice is too small" "alice is too big" "alice is is swimming"]
+(alice-is-loop wonderland.recursion/adjs)
+CompilerException java.lang.RuntimeException: Unable to resolve symbol: alice-is-loop in this context, compiling:(/private/var/folders/xc/s63dqpyx43z0k_0yt6c2ct_h0000gn/T/form-init6000810719267496280.clj:1:5)
 Refreshing code...
 No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
 
-:reloading (wonderland.favfoods)
+:reloading (wonderland.recursion)
 Refresh complete
+(alice-is-loop wonderland.recursion/adjs)
+CompilerException java.lang.RuntimeException: Unable to resolve symbol: alice-is-loop in this context, compiling:(/private/var/folders/xc/s63dqpyx43z0k_0yt6c2ct_h0000gn/T/form-init6000810719267496280.clj:1:5)
+(defn alice-is-loop [input]
+  (loop [in input
+    out []]
+    (if (empty? in)
+    out
+    (recur (rest in)
+    (conj out
+      (str "alice is " (first in)))))))
 
-(let [[colour [size & sized]] ["blue" ["very small" "very large" "massive"]]]
-  (str "The " colour "door is " size sized))
 user=>
-"The bluedoor is very small(\"very large\" \"massive\")"
-(let [[colour [size] :as original] ["blue" ["very small" "very large" "massive"]]]
-  (str "The " colour "door is " size)
-  {:colour colour :size size :orginal original})
+#'user/alice-is-loop
+(alice-is-loop wonderland.recursion/adjs)
 user=>
-{:colour "blue", :size "very small", :orginal ["blue" ["very small" "very large" "massive"]]}
-(let [{flower1 :flower1 flower2 :flower2}
-  {:flower1 "red" :flower2 "blue"}]
-  (str "The flowers are " flower1 " and " flower2))
-user=>
-"The flowers are red and blue"
-(let [{flower1 :flower1 flower2 :flower2 :or {flower2 "missing"}}
-  {:flower1 "red" }]
-  (str "The flowers are " flower1 " and " flower2))
-user=>
-"The flowers are red and missing"
-(let [{flower1 :flower1 :as all-flower}]
-  {:flower1 "red"}
-  (str flower1 all-flower))
-  
-IllegalArgumentException let requires an even number of forms in binding vector in user:1  clojure.core/let (core.clj:4333)
-(let [{flower1 :flower1 :as all-flower}]
-  {:flower1 "red"}
-  (all-flower))
-IllegalArgumentException let requires an even number of forms in binding vector in user:1  clojure.core/let (core.clj:4333)
-(let [{flower1 :flower1 :as all-flower}]
-  {:flower1 "red"}
-  [all-flower])
-IllegalArgumentException let requires an even number of forms in binding vector in user:1  clojure.core/let (core.clj:4333)
-let [{flower1 :flower1 :as all-flower}]
-  {:flower1 "red"}
-  [flower1 all-flower])
-CompilerException java.lang.RuntimeException: Can't take value of a macro: #'clojure.core/let, compiling:(/private/var/folders/xc/s63dqpyx43z0k_0yt6c2ct_h0000gn/T/form-init2354719514907275649.clj:1:1) 
-RuntimeException Unmatched delimiter: )  clojure.lang.Util.runtimeException (Util.java:221)
-(let [{flower1 :flower1 :as all-flower}]
-  {:flower1 "red"}
-  [flower1 all-flower])
-IllegalArgumentException let requires an even number of forms in binding vector in user:1  clojure.core/let (core.clj:4333)
-(let [{flower1 :flower1 :as all-flower}
-  {:flower1 "red"}]
-  [flower1 all-flower])
-user=>
-["red" {:flower1 "red"}]
-
-(let [{:keys [flower1 flower2]}{:flower1 "blue" :flower2 "green"}] flower1 flower2)
-user=>
-"green"
-(let [{:keys [flower1 flower2]}{:flower1 "blue" :flower2 "green"}] (str flower1 flower2))
-user=>
-"bluegreen"
+["alice is normal" "alice is too small" "alice is too big" "alice is is swimming"]
 Refreshing code...
 No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
 
-:reloading (wonderland.favfoods)
+:reloading ()
 Refresh complete
-
-
-(let [{:keys [flower1 flower2]}{:flower1 "blue" :flower2 "green"}] flower1 flower2)
+(wonderland.recursion/countdown 1)
+CompilerException java.lang.RuntimeException: No such var: wonderland.recursion/countdown, compiling:(/private/var/folders/xc/s63dqpyx43z0k_0yt6c2ct_h0000gn/T/form-init6000810719267496280.clj:1:5)
+Loading File /Users/harrywynnwilliams/Projects/wonderland/src/wonderland/recursion.clj
 user=>
-"green"
-(wonderland.favfoods/flower-colours {:flower1 "red" :flower2 "green"})
+#'wonderland.recursion/countdown
+(wonderland.recursion/countdown 1)
 user=>
-":flower1:flower2"
+0
+(wonderland.recursion/countdown 9000000)
+StackOverflowError   clojure.lang.Numbers$LongOps.equiv (Numbers.java:517)
 Refreshing code...
 No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
 
-:reloading (wonderland.favfoods)
-:error-while-loading wonderland.favfoods
-java.lang.RuntimeException: EOF while reading, starting at line 64, compiling:(wonderland/favfoods.clj:68:1)
+:reloading (wonderland.recursion)
 Refresh complete
-(wonderland.favfoods/flower-colours {:flower1 "red" :flower2 "green"})
-ClassNotFoundException wonderland.favfoods  java.net.URLClassLoader.findClass (URLClassLoader.java:381)
+(wonderland.recursion/countdown-recur 9000000)
+CompilerException java.lang.RuntimeException: No such var: wonderland.recursion/countdown-recur, compiling:(/private/var/folders/xc/s63dqpyx43z0k_0yt6c2ct_h0000gn/T/form-init6000810719267496280.clj:1:5)
+Loading File /Users/harrywynnwilliams/Projects/wonderland/src/wonderland/recursion.clj
+user=>
+#'wonderland.recursion/countdown-recur
+(wonderland.recursion/countdown-recur 9000000)
+StackOverflowError   clojure.lang.Numbers$LongOps.equiv (Numbers.java:517)
+(wonderland.recursion/countdown-recur  100000)
+StackOverflowError   clojure.lang.Numbers$LongOps.add (Numbers.java:455)
+Loading File /Users/harrywynnwilliams/Projects/wonderland/src/wonderland/recursion.clj
+user=>
+#'wonderland.recursion/countdown-recur
+(wonderland.recursion/countdown-recur 9000000)
+StackOverflowError   clojure.lang.Numbers.equal (Numbers.java:216)
+(wonderland.recursion/countdown-recur 1000000)
+StackOverflowError   clojure.lang.Numbers$LongOps.add (Numbers.java:455)
+Loading File /Users/harrywynnwilliams/Projects/wonderland/src/wonderland/recursion.clj
+user=>
+#'wonderland.recursion/countdown-recur
+(wonderland.recursion/countdown-recur 100000)
+user=>
+0
+(wonderland.recursion/countdown-recur 1000000)
+user=>
+0
+(wonderland.recursion/countdown-recur 10000000)
+user=>
+0
+(wonderland.recursion/countdown-recur 100000000)
+user=>
+0
+(map #(str % "hello") ["harry"])
+user=>
+("harryhello")
+(map #(str % "hello") ["harry" "ian"])
+user=>
+("harryhello" "ianhello")
+(map #(str % "hello ") ["harry" "ian"])
+user=>
+("harryhello " "ianhello ")
+(map #(str % "hello ") ["harry" "ian"])
+user=>
+("harryhello " "ianhello ")
+(map #(str "hello " %) ["harry" "ian"])
+user=>
+("hello harry" "hello ian")
+(map #(str "hello " %) [["harry"] "ian"])
+user=>
+("hello [\"harry\"]" "hello ian")
+(map #(str "hello " %) [["harry" "garry"] "ian"])
+user=>
+("hello [\"harry\" \"garry\"]" "hello ian")
+(every (map #(str "hello " %) [["harry" "garry"] "ian"]))
+CompilerException java.lang.RuntimeException: Unable to resolve symbol: every in this context, compiling:(/private/var/folders/xc/s63dqpyx43z0k_0yt6c2ct_h0000gn/T/form-init6000810719267496280.clj:1:5)
+(map #(str "hello " %) [["harry" "garry"] "ian"])
+user=>
+("hello [\"harry\" \"garry\"]" "hello ian")
+(map #(str "hello " %) [["harry" "garry"] "ian"])
+user=>
+("hello [\"harry\" \"garry\"]" "hello ian")
+(take 3 (map #(str %) (range)))
+user=>
+("0" "1" "2")
+(println "harry")
+harry
+user=>
+nil
+Loading File /Users/harrywynnwilliams/Projects/wonderland/src/wonderland/recursion.clj
+user=>
+#'wonderland.recursion/countdown-recur
 Refreshing code...
 No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
 
-:reloading (wonderland.favfoods)
+:reloading (wonderland.recursion)
 Refresh complete
-(wonderland.favfoods/flower-colours {:flower1 "red" :flower2 "green"})
+wonderland.recursion/animal-print
+CompilerException java.lang.RuntimeException: No such var: wonderland.recursion/animal-print, compiling:(/private/var/folders/xc/s63dqpyx43z0k_0yt6c2ct_h0000gn/T/form-init6000810719267496280.clj:1:1)
+Loading File /Users/harrywynnwilliams/Projects/wonderland/src/wonderland/recursion.clj
+CompilerException java.lang.RuntimeException: Unable to resolve symbol: prinln in this context, compiling:(/Users/harrywynnwilliams/Projects/wonderland/src/wonderland/recursion.clj:56:25)
+Loading File /Users/harrywynnwilliams/Projects/wonderland/src/wonderland/recursion.clj
+CompilerException java.lang.RuntimeException: Unable to resolve symbol: prinln in this context, compiling:(/Users/harrywynnwilliams/Projects/wonderland/src/wonderland/recursion.clj:56:25)
+Loading File /Users/harrywynnwilliams/Projects/wonderland/src/wonderland/recursion.clj
+user=>
+#'wonderland.recursion/animal-print
+wonderland.recursion/animal-print
+:mouse
+:duck
+:dodo
+:lory
+:eaglet
+user=>
+(nil nil nil nil nil)
+wonderland.recursion/animal-print
+user=>
+(nil nil nil nil nil)
+((def animal-print (map #(println %) animals)))
+CompilerException java.lang.RuntimeException: Unable to resolve symbol: animals in this context, compiling:(/private/var/folders/xc/s63dqpyx43z0k_0yt6c2ct_h0000gn/T/form-init6000810719267496280.clj:1:24)
+(def animals [:mouse :duck :dodo :lory :eaglet])
+
+((def animal-print (map #(println %) animals)))
+ClassCastException clojure.lang.LazySeq cannot be cast to clojure.lang.IFn  clojure.lang.Var.fn (Var.java:363)
+(def animals [:mouse :duck :dodo :lory :eaglet])
+
+(def animal-print (doall (map #(println %) animals)))
+:mouse
+:duck
+:dodo
+:lory
+:eaglet
+user=>
+#'user/animal-print
+(def birds ["dodo" "robbin" "hawk"])
+(def colours ["black" "orange" "green"])
+(defn gen-animal-string
+  [animal color]
+  (str animal " " color))
 
 user=>
-"redgreen"
-Refreshing code...
-No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
-
-:reloading (wonderland.favfoods)
-Refresh complete
-(wonderland.favfoods/flower-colours {:flower1 "red" :flower2 "green"})
-
+#'user/gen-animal-string
+(map gen-animal-string bird colours
+  )
+CompilerException java.lang.RuntimeException: Unable to resolve symbol: bird in this context, compiling:(/private/var/folders/xc/s63dqpyx43z0k_0yt6c2ct_h0000gn/T/form-init6000810719267496280.clj:1:5)
+(map gen-animal-string birds colours)
 user=>
-"red green"
-Refreshing code...
-No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
-
-:reloading (wonderland.favfoods)
-:error-while-loading wonderland.favfoods
-java.lang.RuntimeException: Unable to resolve symbol: flower3 in this context, compiling:(wonderland/favfoods.clj:73:1)
-Refresh complete
+("dodo black" "robbin orange" "hawk green")
+(map gen-animal-string birds (cycle ["orange" "green"]))
+user=>
+("dodo orange" "robbin green" "hawk orange")
 --------------------

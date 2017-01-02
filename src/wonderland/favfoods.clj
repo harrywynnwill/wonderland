@@ -71,3 +71,26 @@
 
 (defn flower-colours [{:keys [flower1 flower2]}]
 (str flower1 " " flower2))
+
+
+;clojure can work with infinite lists
+;if you do not specify a range with (range) you have an infinite list
+;calling range returns a lazy sequences
+
+;repeat can be used to generate a lazy sequence
+
+(take 500(repeat "harry"))
+
+(rand-int 10)
+;produces a random integer between 1 and 10
+
+(take 10(repeatedly #(rand-int 10)))
+
+;use repeatedly which takes a function to get a random list.
+
+;another way to generate lazy sequences is with cycle- it takes a collection as and arg and returns a lazy seq of the items in the collection repeated infinitely
+(take 10 (cycle ["john and michele" "ian and stace"]))
+
+; we can interact with all other clojure sequence functions.
+
+(take 10 (rest (cycle ["john and michele" "ian and stace"])))
